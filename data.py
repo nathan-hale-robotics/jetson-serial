@@ -1,18 +1,17 @@
 import serial
 
 class Data:
-  def __init__(self, addr, port):
+  def __init__(self, port):
     self.ser = serial.Serial()
-    self.ser.port = addr
-    # If it breaks try the below
+    self.ser.port = port
     self.serConf()
-
     self.ser.open()
+
     self.ser.flushInput()
     self.ser.flushOutput()
 
   def send_cmd(self, cmd):
-    self.ser.write("[" + cmd + "]")
+    pass
 
   def read_cmd(self):
     pass

@@ -1,8 +1,14 @@
 import data
 
-data = data.Data('/dev/ttyACM0', 9600)
+data = data.Data("/dev/ttyACM0")
 
-data.send_char(b"Hello!\n")
+while True:
+  try:
+    line = input("Enter data:")
+    data.send_char(line.encode())
+  except KeyboardInterrupt:
+    print("Keyboard interrupt, terminating")
+    break
 
 data.close()
 
