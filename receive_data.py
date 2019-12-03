@@ -1,6 +1,9 @@
 import data
 
-data = data.Data("/dev/ttyGS0")
+port = input("Enter port (ACM0, GS0): ")
+
+data = data.Data("/dev/tty" + port)
+
 
 while True:
   try:
